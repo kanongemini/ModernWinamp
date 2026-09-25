@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModernWinamp.MainPage"
+             BackgroundColor="#121212">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,32,24,24" Spacing="18">
+            <VerticalStackLayout Spacing="4">
+                <Path Data="M 18,0 L 4,22 H 14 L 10,44 L 34,16 H 22 L 27,0 Z" Fill="#D8A8FF" WidthRequest="36" HeightRequest="44" HorizontalOptions="Start">
+                    <Path.Shadow>
+                        <Shadow Brush="#29B6FF" Offset="0,0" Radius="16" Opacity="0.95" />
+                    </Path.Shadow>
+                </Path>
+                <Label Text="ModernWinamp" TextColor="#F5F1FF" FontSize="30" FontAttributes="Bold" />
+                <Label x:Name="PlayerStateLabel" Text="READY" TextColor="#61F2A2" FontSize="12" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="#1B1B1F" Stroke="#2D2D35" StrokeThickness="1" Padding="18">
+                <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                <VerticalStackLayout Spacing="14">
+                    <Label x:Name="TrackTitleLabel" Text="Nenhuma faixa selecionada" TextColor="#F5F1FF" FontSize="20" FontAttributes="Bold" />
+                    <Label x:Name="TrackArtistLabel" Text="Importe um MP3 para começar" TextColor="#98929F" FontSize="13" />
+                    <Label x:Name="TrackAlbumLabel" Text="Álbum: desconhecido" TextColor="#B9A7C8" FontSize="12" />
+                    <ProgressBar x:Name="TrackProgressBar" Progress="0" ProgressColor="#29B6FF" BackgroundColor="#34343D" HeightRequest="6" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label x:Name="CurrentTimeLabel" Text="00:00" TextColor="#7E7E89" FontSize="11" />
+                        <Label x:Name="DurationLabel" Grid.Column="1" Text="00:00" TextColor="#7E7E89" FontSize="11" />
+                    </Grid>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                        <Button Text="VOLTAR" Clicked="OnBackClicked" BackgroundColor="#241735" TextColor="#D8A8FF" BorderColor="#9B4DFF" BorderWidth="1" />
+                        <Button Text="PLAY" Clicked="OnPlayClicked" BackgroundColor="#7136A8" TextColor="#FFFFFF" BorderColor="#C378FF" BorderWidth="1" />
+                        <Button Text="PAUSE" Clicked="OnPauseClicked" BackgroundColor="#241735" TextColor="#D8A8FF" BorderColor="#9B4DFF" BorderWidth="1" />
+                        <Button Text="AVANÇAR" Clicked="OnNextClicked" BackgroundColor="#241735" TextColor="#D8A8FF" BorderColor="#9B4DFF" BorderWidth="1" />
+                    </HorizontalStackLayout>
+                    <Button Text="+  Importar MP3" Clicked="OnImportMp3Clicked" BackgroundColor="#21152F" TextColor="#D8A8FF" BorderColor="#29B6FF" BorderWidth="1" HorizontalOptions="Center">
+                        <Button.Shadow><Shadow Brush="#7136A8" Offset="0,0" Radius="14" Opacity="0.9" /></Button.Shadow>
+                    </Button>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button Text="−" Clicked="OnVolumeDownClicked" BackgroundColor="#241735" TextColor="#D8A8FF" BorderColor="#9B4DFF" BorderWidth="1" FontSize="18" WidthRequest="48" />
+                        <Label x:Name="VolumeLabel" Text="100%" TextColor="#B9A7C8" FontSize="12" VerticalTextAlignment="Center" WidthRequest="48" HorizontalTextAlignment="Center" />
+                        <Button Text="+" Clicked="OnVolumeUpClicked" BackgroundColor="#241735" TextColor="#D8A8FF" BorderColor="#9B4DFF" BorderWidth="1" FontSize="18" WidthRequest="48" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Playlist" TextColor="#F5F1FF" FontSize="20" FontAttributes="Bold" />
+                <Label x:Name="PlaylistCountLabel" Grid.Column="1" Text="00 TRACKS" TextColor="#7E7E89" FontSize="11" VerticalTextAlignment="Center" />
+            </Grid>
+            <VerticalStackLayout x:Name="PlaylistContainer" Spacing="8" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
